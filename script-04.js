@@ -31,11 +31,10 @@
 //
 // APP VARIABLES AND DOM ELEMENTS
 //
-
 // 1. The ul for the list of pokemon
-
+let list = document.querySelector(".poke-items");
 // 2. The span message to display the index
-
+let message = document.querySelector(".message");
 
 //
 // FUNCTIONS
@@ -44,14 +43,14 @@
 // 3. Handle the event when a user clicks on the list
 function listClickHander(event) {
   // 4. Check if the click event is from a button or something else
-
-
-
+if (event.target.nodeName !== "BUTTON" ) {
+  return;
+}
   // 5. Get the index from the data attribute (dataset.pokemon)
-
+let indexFromData = event.target.dataset.pokemon;
 
   // 6. Use the textContent of the span to display the index that was clicked
-
+message.textContent = indexFromData;
 }
 
 //
@@ -60,4 +59,4 @@ function listClickHander(event) {
 
 // 7. Add the event listener to the pokeList by listening for
 //   a click event and calling the listClickHander function
-
+  list.addEventListener("click", listClickHander);
